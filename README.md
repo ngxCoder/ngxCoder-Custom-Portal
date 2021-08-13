@@ -1,9 +1,6 @@
-# Portal
+# Custom Portal for ngxCoder
 
-[![CI Status](https://github.com/TryGhost/portal/workflows/Test/badge.svg?branch=main)](https://github.com/TryGhost/portal/actions)
-[![npm version](https://badge.fury.io/js/%40tryghost%2Fportal.svg)](https://badge.fury.io/js/%40tryghost%2Fportal)
-
-Drop-in script to make the bulk of Ghost membership features work on any theme.
+This script was forked from [Portal](https://github.com/TryGhost/Portal)
 
 ## Usage
 
@@ -30,23 +27,21 @@ The script also adds custom class names to this element for open and close state
 1. Clone this repository:
 
 ```shell
-git@github.com:TryGhost/portal.git
+git clone https://github.com/ngxCoder/ngxCoder-Custom-Portal.git
 ```
 
 2. Change into the new directory and install the dependencies:
 
 ```shell
 cd portal
-yarn
+npm i
 ```
 
-## Configure for local development
-
-Only useful for active UI development without publishing a version on unpkg. Always use the unpkg link for testing latest released portal script.
+## Configure for production
 
 #### In this repo(Portal):
 
-- Run `yarn build` to create the minified bundle with your changes at `umd/portal.min.js`
+- Run `npm run build` to create the minified bundle with your changes at `umd/portal.min.js`
 
 #### In your theme(Ex. Lyra):
 
@@ -54,12 +49,12 @@ Only useful for active UI development without publishing a version on unpkg. Alw
 
 #### In Ghost repo
 
-- Update your `config.local.json` to add "portal" config which points url to the locally built copy.
+- Update your `config.production.json` to add "portal" config which points url to built copy.
 
 ```json
     ...,
     "portal": {
-        "url": "SITE_URL/assets/built/portal.min.js"
+        "url": "https://ngxcoder.dev/assets/built/portal.min.js"
     },
     ...
 ```
@@ -68,34 +63,22 @@ Only useful for active UI development without publishing a version on unpkg. Alw
 
 In the project directory, you can also run:
 
-### `yarn start`
+### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn build`
+### `npm run build`
 
-Creates the production single minified bundle for external use in `umd/portal.min.js`.  <br />
+Creates the production single minified bundle for external use in `umd/portal.min.js`.
 
-### `yarn test`
+### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-
-## Publish
-
-Run `yarn ship` to publish new version of script.
-
-`yarn ship` is an alias for `npm publish`
-
-- Builds the script with latest code using `yarn build` (prePublish)
-- Publishes package on npm as `@tryghost/portal` and creates an unpkg link for script at https://unpkg.com/@tryghost/portal@VERSION
-
-(Core team only)
 
 ## Learn More
 
