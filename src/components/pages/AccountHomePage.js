@@ -113,13 +113,13 @@ const AccountFooter = ({onClose, handleSignout, supportAddress = ''}) => {
     return (
         <footer className='gh-portal-account-footer'>
             <ul className='gh-portal-account-footermenu'>
-                <li><button className='gh-portal-btn' name='logout' aria-label='logout' onClick={e => handleSignout(e)}>Sign out</button></li>
+                <li><button className='gh-portal-btn' name='logout' aria-label='logout' onClick={e => handleSignout(e)}>Cerrar sesión</button></li>
             </ul>
             <div className='gh-portal-account-footerright'>
                 <ul className='gh-portal-account-footermenu'>
                     <li><a className='gh-portal-btn gh-portal-btn-branded' href={supportAddressMail} onClick={() => {
                         supportAddressMail && window.open(supportAddressMail);
-                    }}>Contact support</a></li>
+                    }}>Contacte a soporte</a></li>
                 </ul>
             </div>
         </footer>
@@ -132,7 +132,7 @@ const UserHeader = () => {
     return (
         <header className='gh-portal-account-header'>
             <UserAvatar avatar={avatar} brandColor={brandColor} />
-            <h2 className="gh-portal-main-title">Your account</h2>
+            <h2 className="gh-portal-main-title">Mi cuenta</h2>
         </header>
     );
 };
@@ -252,7 +252,7 @@ const AccountActions = () => {
         onAction('updateNewsletter', {subscribed: !sub});
     };
 
-    let label = subscribed ? 'Subscribed' : 'Unsubscribed';
+    let label = subscribed ? 'Suscrito' : 'Desuscrito';
     return (
         <div>
             <div className='gh-portal-list'>
@@ -261,14 +261,14 @@ const AccountActions = () => {
                         <h3>{(name ? name : 'Account')}</h3>
                         <p>{email}</p>
                     </div>
-                    <button className='gh-portal-btn gh-portal-btn-list' onClick={e => openEditProfile(e)}>Edit</button>
+                    <button className='gh-portal-btn gh-portal-btn-list' onClick={e => openEditProfile(e)}>Editar</button>
                 </section>
 
                 <PaidAccountActions />
 
                 <section>
                     <div className='gh-portal-list-detail'>
-                        <h3>Email newsletter</h3>
+                        <h3>Recibir actualizaciones por correo</h3>
                         <p>{label}</p>
                     </div>
                     <div>
@@ -328,14 +328,14 @@ const AccountWelcome = () => {
         }
         return (
             <div className='gh-portal-section'>
-                <p className='gh-portal-text-center gh-portal-free-ctatext'>Your subscription will renew on {getDateString(currentPeriodEnd)}</p>
+                <p className='gh-portal-text-center gh-portal-free-ctatext'>Su suscripción se renovará el {getDateString(currentPeriodEnd)}</p>
             </div>
         );
     }
 
     return (
         <div className='gh-portal-section'>
-            <p className='gh-portal-text-center gh-portal-free-ctatext'>You currently have a free membership, upgrade to a paid subscription for full access.</p>
+            <p className='gh-portal-text-center gh-portal-free-ctatext'>Actualmente tiene una membresía gratuita, actualice a una suscripción paga para tener acceso completo.</p>
             <SubscribeButton />
         </div>
     );
@@ -363,7 +363,7 @@ const ContinueSubscriptionButton = () => {
         }
         const currentPeriodEnd = subscription.current_period_end;
         return (
-            <p className='gh-portal-text-center gh-portal-free-ctatext'>Your subscription will expire on {getDateString(currentPeriodEnd)}</p>
+            <p className='gh-portal-text-center gh-portal-free-ctatext'>Su suscripción caducará el {getDateString(currentPeriodEnd)}</p>
         );
     };
 

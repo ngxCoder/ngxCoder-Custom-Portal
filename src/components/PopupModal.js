@@ -146,10 +146,10 @@ class PopupContent extends React.Component {
         let pageClass = page;
         switch (page) {
         case 'signup':
-            cookieBannerText = 'Cookies must be enabled in your browser to sign up.';
+            cookieBannerText = 'Las cookies deben estar habilitadas en tu navegador para registrarte.';
             break;
         case 'signin':
-            cookieBannerText = 'Cookies must be enabled in your browser to sign in.';
+            cookieBannerText = 'Las cookies deben estar habilitadas en tu navegador para iniciar sesión.';
             break;
         case 'accountHome':
             pageClass = 'account-home';
@@ -161,7 +161,7 @@ class PopupContent extends React.Component {
             pageClass = 'account-plan';
             break;
         default:
-            cookieBannerText = 'Cookies must be enabled in your browser.';
+            cookieBannerText = 'Las cookies deben estar habilitadas.';
             pageClass = page;
             break;
         }
@@ -196,7 +196,7 @@ class PopupContent extends React.Component {
                     <a href='https://ghost.org' target='_blank' rel='noopener noreferrer' onClick={() => {
                         window.open('https://ghost.org', '_blank');
                     }}>
-                        <img src="https://static.ghost.org/v4.0.0/images/powered.png" border="0" width="142" height="30" alt="Publish with Ghost" />
+                        {/* <img src="https://static.ghost.org/v4.0.0/images/powered.png" border="0" width="142" height="30" alt="Publish with Ghost" /> */}
                     </a>
                 </div>
             </div>

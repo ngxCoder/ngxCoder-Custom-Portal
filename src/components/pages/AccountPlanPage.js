@@ -47,7 +47,7 @@ function getConfirmationPageTitle({confirmationType}) {
 
 const Header = ({onBack, showConfirmation, confirmationType}) => {
     const {member, brandColor, lastPage} = useContext(AppContext);
-    let title = isPaidMember({member}) ? 'Change plan' : 'Choose a plan';
+    let title = isPaidMember({member}) ? 'Cambiar plan' : 'Elegir un plan';
     if (showConfirmation) {
         title = getConfirmationPageTitle({confirmationType});
     }
@@ -72,7 +72,7 @@ const CancelSubscriptionButton = ({member, onCancelSubscription, action, brandCo
     if (subscription.cancel_at_period_end) {
         return null;
     }
-    const label = 'Cancel subscription';
+    const label = 'Cancelar suscripción';
     const isRunning = ['cancelSubscription:running'].includes(action);
     const disabled = (isRunning) ? true : false;
     const isPrimary = !!subscription.cancel_at_period_end;
@@ -107,7 +107,7 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
     const [reason, setReason] = useState('');
     const subscription = getMemberSubscription({member});
     const isRunning = ['updateSubscription:running', 'checkoutPlan:running', 'cancelSubscription:running'].includes(action);
-    const label = 'Confirm';
+    const label = 'Confirmar';
     let planStartDate = getDateString(subscription.current_period_end);
     const currentActivePlan = getMemberActivePrice({member});
     if (currentActivePlan.id !== plan.id) {
